@@ -12,12 +12,23 @@ npm install react-native-reanimated-numbers
 
 
 ```js
-import { multiply } from 'react-native-reanimated-numbers';
+import { AnimatedNumber } from 'react-native-reanimated-numbers';
 
 // ...
-
-const result = await multiply(3, 7);
+<AnimatedNumber
+  value={number}
+  fontSize={48}
+  duration={750}
+  format={new Intl.NumberFormat('en-US')}
+/>
 ```
+
+`number` is the number to animate.
+`fontSize` is the font size of the number.
+`duration` is the duration of the animation in milliseconds.
+`format` (optional) is the format of the number, by default there is no formatting.
+
+lineHeight is fontSize * 1.2
 
 
 ## Contributing
