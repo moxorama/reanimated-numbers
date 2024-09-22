@@ -1,17 +1,29 @@
-import { useState, useEffect } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'react-native-reanimated-numbers';
+import React,{ useState, useEffect } from 'react';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { AnimatedNumber } from 'react-native-reanimated-number';
+
 
 export default function App() {
-  const [result, setResult] = useState<number | undefined>();
+
+  const [number, setNumber] = useState(812);
 
   useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
+    const interval = setInterval(() => {
+      setNumber(number + 123);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, [number]);
 
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <AnimatedNumber
+        value={number} 
+        fontSize={48}  
+        duration={750} 
+        format={new Intl.NumberFormat('en-US')}   
+      />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -19,12 +31,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
   },
 });
