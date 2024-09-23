@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { AnimatedNumber } from 'react-native-reanimated-number';
+import { AnimatedNumber } from '../../src/';
 
 export default function App() {
   const [number, setNumber] = useState(812);
