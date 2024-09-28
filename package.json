@@ -1,6 +1,6 @@
 {
   "name": "@moxorama/reanimated-numbers",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Library that animates changes in numbers",
   "source": "./src/index.ts",
   "main": "./lib/commonjs/index.js",
@@ -111,7 +111,10 @@
     },
     "npm": {
       "publish": true,
-      "publishArgs": ["--access", "public"]
+      "publishArgs": [
+        "--access",
+        "public"
+      ]
     },
     "github": {
       "release": true
