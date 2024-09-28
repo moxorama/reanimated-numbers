@@ -4,7 +4,6 @@
   "description": "Library that animates changes in numbers",
   "source": "./src/index.ts",
   "main": "./lib/commonjs/index.js",
-  "private": false,
   "module": "./lib/module/index.js",
   "exports": {
     ".": {
@@ -111,7 +110,8 @@
       "tagName": "v${version}"
     },
     "npm": {
-      "publish": true
+      "publish": true,
+      "publishArgs": ["--access", "public"]
     },
     "github": {
       "release": true
