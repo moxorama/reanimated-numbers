@@ -5,7 +5,7 @@ Library that animates changes in numbers
 ## Installation
 
 ```sh
-npm install react-native-reanimated-numbers
+npm install @moxorama/reanimated-numbers
 ```
 
 ## Usage
