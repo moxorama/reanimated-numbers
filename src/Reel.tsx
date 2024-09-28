@@ -1,17 +1,23 @@
 import { useMemo, useEffect, useCallback } from 'react';
-import { Text } from 'react-native';
+import {
+  Text,
+  StyleProp,
+  TextStyle,
+  FontVariant,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import type { TextStyle, FontVariant } from 'react-native';
 
 import { styles, lineHeightMultiplier } from './AnimatedNumberStyle';
 
 type ReelProps = {
   fontSize: number;
-  textStyle?: TextStyle;
+  textStyle?: StyleProp<TextStyle>;
   symbol: string;
   duration: number;
 };
@@ -19,6 +25,7 @@ type ReelProps = {
 const reelNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 const frameDuration = 16;
 const fontVariant = ['tabular-nums' as FontVariant];
+const { fontScale } = Dimensions.get('window');
 
 function Reel(props: ReelProps) {
   const { fontSize, symbol, duration, textStyle } = props;
@@ -26,7 +33,8 @@ function Reel(props: ReelProps) {
   const lineHeight = fontSize * lineHeightMultiplier;
 
   const fontStyle = useMemo(
-    () => ({ ...textStyle, fontSize, lineHeight, fontVariant }),
+    (): TextStyle =>
+      StyleSheet.flatten([textStyle, { fontSize, lineHeight, fontVariant }]),
     [textStyle, fontSize, lineHeight]
   );
 
@@ -44,9 +52,8 @@ function Reel(props: ReelProps) {
   useEffect(() => {
     if (isNumber) {
       const digit = parseInt(symbol, 10);
-      translateY.value = withTiming(fontSize * -lineHeightMultiplier * digit, {
-        duration,
-      });
+      const offset = fontSize * -lineHeightMultiplier * digit * fontScale;
+      translateY.value = withTiming(offset, { duration });
     } else {
       // Direct setting to 0 from JS thread is async and slower than using withTiming
       translateY.value = withTiming(0, { duration: frameDuration });

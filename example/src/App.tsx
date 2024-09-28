@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { AnimatedNumber } from '../../src/';
 
@@ -21,7 +20,6 @@ export default function App() {
         duration={750}
         format={new Intl.NumberFormat('en-US')}
       />
-      <StatusBar style="auto" />
     </View>
   );
 }

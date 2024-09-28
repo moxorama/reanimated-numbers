@@ -1,16 +1,16 @@
 import { StyleSheet } from 'react-native';
 
+const lineHeightMultiplier = 1.2;
+
 const styles = StyleSheet.create({
   animatedNumber: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
     overflow: 'hidden',
   },
 
   reel: {
     flexDirection: 'column',
-  }
+  },
 });
-
-const lineHeightMultiplier = 1.2;
 
 export { styles, lineHeightMultiplier };
