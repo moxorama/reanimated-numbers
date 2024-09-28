@@ -1,4 +1,4 @@
-# react-native-reanimated-numbers
+# @moxorama/reanimated-numbers
 
 Library that animates changes in numbers
 
