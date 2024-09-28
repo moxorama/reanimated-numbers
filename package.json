@@ -86,7 +86,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-reanimated": "^3.0.0"
   },
   "packageManager": "yarn@3.6.1",
   "jest": {
@@ -177,8 +178,5 @@
   "create-react-native-library": {
     "type": "library",
     "version": "0.41.2"
-  },
-  "dependencies": {
-    "react-native-reanimated": "^3.0.0"
   }
 }
