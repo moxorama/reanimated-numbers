@@ -1,6 +1,6 @@
 {
   "name": "@moxorama/reanimated-numbers",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "description": "Library that animates changes in numbers",
   "source": "./src/index.ts",
   "main": "./lib/commonjs/index.js",
@@ -50,14 +50,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxorama/react-native-reanimated-numbers.git"
+    "url": "git+https://github.com/moxorama/reanimated-numbers.git"
   },
   "author": "George Khromchenko <moxorama@gmail.com> (https://github.com/moxorama)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moxorama/react-native-reanimated-numbers/issues"
+    "url": "https://github.com/moxorama/reanimated-numbers/issues"
   },
-  "homepage": "https://github.com/moxorama/react-native-reanimated-numbers#readme",
+  "homepage": "https://github.com/moxorama/reanimated-numbers#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
