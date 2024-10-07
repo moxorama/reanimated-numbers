@@ -12,7 +12,7 @@ npm install @moxorama/reanimated-numbers
 
 
 ```js
-import { AnimatedNumber } from 'react-native-reanimated-numbers';
+import { AnimatedNumber } from '@moxorama/reanimated-numbers';
 
 // ...
 <AnimatedNumber
