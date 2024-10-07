@@ -1,11 +1,11 @@
-# react-native-reanimated-numbers
+# @moxorama/reanimated-numbers
 
 Library that animates changes in numbers
 
 ## Installation
 
 ```sh
-npm install react-native-reanimated-numbers
+npm install @moxorama/reanimated-numbers
 ```
 
 ## Usage
@@ -23,10 +23,10 @@ import { AnimatedNumber } from 'react-native-reanimated-numbers';
 />
 ```
 
-`number` is the number to animate.
-`fontSize` is the font size of the number.
-`duration` is the duration of the animation in milliseconds.
-`format` (optional) is the format of the number, by default there is no formatting.
+- `number` is the number to animate.
+- `fontSize` is the font size of the number.
+- `duration` is the duration of the animation in milliseconds.
+- `format` (optional) is the format of the number, by default there is no formatting.
 
 lineHeight is fontSize * 1.2
 
