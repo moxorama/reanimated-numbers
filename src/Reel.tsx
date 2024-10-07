@@ -1,4 +1,4 @@
-import { useMemo, useEffect, useCallback } from 'react';
+import React, { useMemo, useEffect, useCallback } from 'react';
 import {
   Text,
   StyleProp,
@@ -38,9 +38,17 @@ function Reel(props: ReelProps) {
     [textStyle, fontSize, lineHeight]
   );
 
-  const translateY = useSharedValue(0);
-
   const isNumber = /\d/.test(symbol);
+
+  const getOffset = useCallback(() => {
+    if (!isNumber) {
+      return 0;
+    }
+    const digit = parseInt(symbol, 10);
+    return fontSize * -lineHeightMultiplier * digit * fontScale;
+  }, [isNumber, symbol, fontSize]);
+
+  const translateY = useSharedValue(getOffset());
 
   const style = useAnimatedStyle(() => {
     return {
@@ -51,14 +59,12 @@ function Reel(props: ReelProps) {
 
   useEffect(() => {
     if (isNumber) {
-      const digit = parseInt(symbol, 10);
-      const offset = fontSize * -lineHeightMultiplier * digit * fontScale;
-      translateY.value = withTiming(offset, { duration });
+      translateY.value = withTiming(getOffset(), { duration });
     } else {
       // Direct setting to 0 from JS thread is async and slower than using withTiming
       translateY.value = withTiming(0, { duration: frameDuration });
     }
-  }, [symbol, isNumber, duration, translateY, fontSize]);
+  }, [symbol, isNumber, duration, translateY, fontSize, getOffset]);
 
   const renderContent = useCallback(() => {
     const renderReelNumbers = () => {
