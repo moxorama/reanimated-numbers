@@ -8,6 +8,9 @@ Library that animates changes in numbers
 npm install @moxorama/reanimated-numbers
 ```
 
+
+![](doc/animated_numbers.gif)
+
 ## Usage
 
 
