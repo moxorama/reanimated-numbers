@@ -2,7 +2,7 @@
   "compilerOptions": {
     "rootDir": ".",
     "paths": {
-      "react-native-reanimated-numbers": ["./src/index"]
+      "@moxorama/reanimated-numbers": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
