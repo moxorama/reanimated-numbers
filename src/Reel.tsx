@@ -88,7 +88,11 @@ function Reel(props: ReelProps) {
     return isNumber ? renderReelNumbers() : renderSymbol();
   }, [fontStyle, isNumber, symbol]);
 
-  return <Animated.View style={style}>{renderContent()}</Animated.View>;
+  return (
+    <Animated.View style={style} aria-hidden accessibilityElementsHidden>
+      {renderContent()}
+    </Animated.View>
+  );
 }
 
 export { Reel };

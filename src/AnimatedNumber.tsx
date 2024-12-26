@@ -1,10 +1,16 @@
 import { useMemo, useCallback } from 'react';
-import { View, StyleProp, TextStyle, Dimensions } from 'react-native';
+import {
+  View,
+  StyleProp,
+  TextStyle,
+  Dimensions,
+  ViewProps,
+} from 'react-native';
 
 import { Reel } from './Reel';
 import { styles, lineHeightMultiplier } from './AnimatedNumberStyle';
 
-type AnimatedNumberProps = {
+type OwnProps = {
   value: number;
   format?: Intl.NumberFormat;
   fontSize: number;
@@ -12,15 +18,15 @@ type AnimatedNumberProps = {
   duration: number;
 };
 
+type AnimatedNumberProps = ViewProps & OwnProps;
+
 const { fontScale } = Dimensions.get('window');
 
 function AnimatedNumber(props: AnimatedNumberProps) {
-  const { value, format, fontSize, textStyle, duration } = props;
+  const { value, format, fontSize, textStyle, duration, ...viewProps } = props;
 
-  const symbols = useMemo(() => {
-    const formattedValue = format ? format.format(value) : value.toString();
-    return formattedValue.split('');
-  }, [value, format]);
+  const formattedValue = format ? format.format(value) : value.toString();
+  const symbols = formattedValue.split('');
 
   const renderReels = useCallback(() => {
     return symbols.map((symbol, index) => {
@@ -44,7 +50,17 @@ function AnimatedNumber(props: AnimatedNumberProps) {
     [fontSize]
   );
 
-  return <View style={contentContainerStyle}>{renderReels()}</View>;
+  return (
+    <View
+      style={contentContainerStyle}
+      {...viewProps}
+      accessibilityRole="text"
+      accessibilityLabel={formattedValue}
+      aria-label={formattedValue}
+    >
+      {renderReels()}
+    </View>
+  );
 }
 
 export { AnimatedNumber };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { AnimatedNumber } from '../../src/';
 
 export default function App() {
@@ -14,6 +14,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Text>Hello</Text>
       <AnimatedNumber
         value={number}
         fontSize={48}
